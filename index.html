@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        body {
+            width: 100%;
+            height: 120vh;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 1fr 1fr 90% 1fr;
+            margin: 0%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        header {
+            background-image: url(bookshelf-background-3.jpg);
+            background-position: center;
+            color: #27005D;
+
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        h1 {
+            margin-left: 1rem;
+            font-size: 4rem;
+        }
+
+        h3 {
+            font-size: 3rem;
+            margin-left: 1rem;
+        }
+
+        h4 {
+            font-size: 2rem;
+        }
+
+        nav {
+            background-color: #AED2FF;
+            color: #27005D;
+
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        main {
+            grid-column: 1;
+            grid-row:3 ;
+
+            height: fit-content;
+        }
+
+        a {
+            text-decoration: none;
+            color: #27005D;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a.signup {
+            font-size: 3rem;
+            margin-left: 25rem;
+        }
+
+        article {
+            display: grid;
+            grid-template-columns: 70% 30%;
+        }
+
+        section {
+            background-color: #E5CFF7;
+            color: #27005D;
+            height: 50rem;
+            grid-column: 1;
+        }
+
+        aside {
+            background-color: #E5CFF7;
+
+            grid-column: 2;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0px;
+        }
+
+        nav ul li {
+            list-style-type: none;
+            margin-left: 3rem;
+            margin-right: 3rem;
+            font-size: 1.5rem;
+        }
+
+        nav ul li.heading {
+            flex-grow: 1;
+            margin-left: 1rem;
+        }
+
+        footer {
+            display: block;
+            background-color: #27005D;
+            color: #E4F1FF;
+            text-align: center;
+            font-size: 1.25rem;
+
+            height: 2.25rem;
+
+            grid-column: 1;
+            grid-row: 4;
+        }
+
+        .signup {
+            border-radius: 45px;
+            padding: 20px;
+            background-color: #9D76C1;
+            color: #27005D;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Booklet.com</h1>    
+    </header>
+    <nav>
+        <ul>
+            <li class="heading"><h2>Your personal library management system</h2></li>
+            <li><a href="login_page.html">Login</a></li>
+            <li><a href="features_page.html">Features</a></li>
+            <li><a href="#">Recommendations</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        <article>
+            <section>
+                <h3>Welcome to the one-stop destination for all book readers!</h3><br>
+                <h4><ul>
+                    <li>Record your reads with all details including quotes, dates, bookmarks and much more...</li>
+                    <li>Got a new TBR? Keep it with us to check afterwards...</li>
+                    <li>Access your records with all your details intact over the web...</li>
+                    <li>Don't have internet? You can download your lists without much fuss...</li>
+                    <li>Store images, links and notes to access later on...</li>
+                    <li>Confused about what to read next? Check out our list of helpful websites...</li>
+                </ul></h4>
+                <a href="registration_page.html" class="signup">Sign Up Now!</a>
+            </section>
+            <aside>
+                <img src="book-stack.jpg" alt="A pile of books">
+            </aside>
+        </article>
+    </main>
+    <!-- <footer>
+        &#169 Copyright 2023 &#183 Booklet.com &#183 All Rights Reserved
+    </footer> -->
+</body>
+</html>
