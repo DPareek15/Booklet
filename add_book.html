@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion Page</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 1fr 1fr 90%;
+            margin: 0%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        header {
+            background-image: url(bookshelf-background-3.jpg);
+            background-position: center;
+            color: #27005D;
+
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        h1 {
+            margin-left: 1rem;
+            font-size: 3rem;
+        }
+
+        nav {
+            background-color: #9D76C1;
+            color: #27005D;
+
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0px;
+        }
+
+        nav ul li {
+            list-style-type: none;
+            margin-left: 3rem;
+            margin-right: 3rem;
+            font-size: 1.2rem;
+        }
+
+        nav ul li.heading {
+            flex-grow: 1;
+            margin-left: 1rem;
+        }
+
+        main {
+            background-image: linear-gradient(#27005D,#9400FF);
+
+            grid-column: 1;
+            grid-row: 3;
+
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 1fr 1fr 90%;
+        }
+
+        article#p_menu {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #AED2FF;
+            font-size: 1.5rem;
+        }
+
+        article#s_menu {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #E4F1FF;
+        }
+
+        #p_menu section {
+            margin: 2rem;
+        }
+
+        #s_menu section {
+            margin: 2rem;
+        }
+
+        .current {
+            padding-bottom: 5px;
+            border-bottom: 5px solid #000000;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        form section {
+            margin: 1rem;
+            padding: 1rem;
+        }
+
+        button {
+            height: 7rem;
+            width: 15rem;
+            background-color: transparent;
+            border: 0px;
+            margin: 0rem 3rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        table {
+            margin: 2rem auto;
+            font-size: 1.5rem;
+            text-align: left;
+            color: #E4F1FF;
+        }
+
+        tr td:first-child {
+            text-align: right;
+        }
+
+        td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        input[type='text'] {
+            width: 30rem;
+            height: 3rem;
+            font-size: 1rem;
+            padding: 0.5rem;
+            border: 2px solid;
+            background-color: #27005D;
+            border-color: #E4F1FF;
+            color: #E4F1FF;
+        }
+
+        input[type='number'] {
+            width: 20rem;
+            height: 1.5rem;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            border: 2px solid;
+            background-color: #27005D;
+            border-color: #E4F1FF;
+            color: #E4F1FF;
+        }
+
+        input[type='radio'] {
+            width: 3rem;
+            height: 1rem;
+            font-size: 1rem;
+            padding: 0.5rem;
+            text-align: left;
+            background-color: #27005D;
+            border-color: #E4F1FF;
+            color: #E4F1FF;
+        }
+
+        input[type='date'] {
+            width: 25rem;
+            height: 2rem;
+            margin: 0rem 0.5rem;
+            font-size: 1.25rem;
+            border: 2px solid;
+            background-color: #27005D;
+            border-color: #E4F1FF;
+            color: #E4F1FF;
+        }
+
+        select {
+            width: 15rem;
+            height: 2.5rem;
+            margin: 0rem 0.5rem;
+            padding: 0.25rem;
+            font-size: 1.25rem;
+            border: 2px solid;
+            background-color: #27005D;
+            border-color: #E4F1FF;
+            color: #E4F1FF;
+        }
+
+        textarea {
+            width: 30rem;
+            height: 10rem;
+            border: 2px solid;
+            background-color: #27005D;
+            border-color: #E4F1FF;
+            color: #E4F1FF;
+        }
+
+        .secbutton {
+            width: 10rem;
+            height: 2.5rem;
+            font-size: 1.1rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+            text-align: center;
+            border: 4px solid #E4F1FF;
+            background-color: #AED2FF;
+            color: #27005D;
+        }
+
+        ::placeholder {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+            color: #AED2FF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Booklet.com</h1>    
+    </header>
+    <nav>
+        <ul>
+            <li class="heading"><h2>Your personal library management system</h2></li>
+            <li><a href="main_page.html">Home</a></li>
+            <li><a href="#">Recommendations</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        <article id="p_menu">
+            <a href="#">
+                <section class="current">
+                    ADD BOOKS
+                </section>
+            </a>
+            <a href="#">
+                <section>
+                    SHOW RECORDS
+                </section>
+            </a>
+            <a href="remove_book.html">
+                <section>
+                    REMOVE BOOKS
+                </section>
+            </a>
+            <a href="#">
+                <section>
+                    EDIT PROMPTS
+                </section>
+            </a>  
+        </article>
+        <article id="s_menu">
+            <button id="add_book" class="button" onclick="set_book_form()">
+                <section id="book_section" class="current">
+                    ADD BOOK
+                </section>
+            </button>
+            <button id="add_series" class="button" onclick="set_series_form()">
+                <section id="series_section" class="other">
+                    ADD SERIES
+                </section>
+            </button>
+        </article>
+        <article id="form_1">
+            <form name="add_book_form" onsubmit="return validate(1)" autocomplete="off">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="bkname" class="label">Book Name : </label>
+                        </td>
+                        <td>
+                            <input type="text" id="bkname" class="input" placeholder="Enter the name of the book here" required/>
+                        </td>
+                        <td>
+                            <span class="formerror" id="nameerr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <label for="series" class="label">Series : </label>
+                        </td>
+                        <td>
+                            <input type="radio" name="series" id="standalone" onclick="series_func()">Standalone
+                            <input type="radio" name="series" id="series" onclick="series_func()">Existing Series
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">    
+                            <input type="text" id="sername" class="input" placeholder="Enter the name of the series here" hidden/>
+                        </td>
+                        <td>
+                            <span class="formerror" id="sererr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="atrname" class="label">Author(s) : </label>
+                        </td>
+                        <td>
+                            <input type="text" id="atrname" class="input" placeholder="Enter the name of the author here"/>
+                        </td>
+                        <td>
+                            <span class="formerror" id="atrerr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pbrname" class="label">Publisher(s) : </label>
+                        </td>
+                        <td>
+                            <input type="text" id="pbrname" class="input" placeholder="Enter the name of publisher here"/>
+                        </td>
+                        <td>
+                            <span class="formerror" id="pbrerr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <label for="fiction" class="label">Genre : </label>
+                        </td>
+                        <td>
+                            <input type="radio" name="genre" id="fiction" onclick="genre_func()">Fiction
+                            <input type="radio" name="genre" id="nonfiction" onclick="genre_func()">Non-Fiction
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <select name="genre" id="fictopt" hidden>
+                                <option value="00">Fiction</option>
+                                <option value="01">Adventure</option>
+                                <option value="02">Dystopian</option>
+                                <option value="03">Fantasy</option>
+                                <option value="04">Historical Fiction</option>
+                                <option value="05">Horror</option>
+                                <option value="06">Mystery</option>
+                                <option value="07">Romance</option>
+                                <option value="08">Science Fiction</option>
+                                <option value="09">Young Adult</option>
+                                <option value="10">Children's Fiction</option>
+                            </select>
+                            <select name="genre" id="nonfictopt" hidden>
+                                <option value="00">Non-Fiction</option>
+                                <option value="01">Biography, Autobiography and Memoir</option>
+                                <option value="02">Business and Economics</option>
+                                <option value="03">Crafts and Hobbies</option>
+                                <option value="04">Health and Fitness</option>
+                                <option value="05">History and Philosophy</option>
+                                <option value="06">Politics and Social Sciences</option>
+                                <option value="07">Religion and Spirituality</option>
+                                <option value="08">Science and Technology</option>
+                                <option value="09">Self-Help and Education</option>
+                                <option value="10">Travel and Journalism</option>
+                            </select>
+                        </td>
+                        <td>
+                            <span class="formerror" id="generr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="numpages" class="label">Page Number : </label>
+                        </td>
+                        <td>
+                            <input type="number" id="numpages" class="input" placeholder="Enter the number of pages in the book" required/>
+                        </td>
+                        <td>
+                            <span class="formerror" id="numerr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="start-date" class="label">Date of Beginning : </label>
+                        </td>
+                        <td>
+                            <input type="date" id="start-date" class="date">
+                        </td>
+                        <td>
+                            <span class="formerror" id="strdateerr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="end-date" class="label">Date of Finishing : </label>
+                        </td>
+                        <td>
+                            <input type="date" id="end-date" class="date">
+                        </td>
+                        <td>
+                            <span class="formerror" id="enddateerr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="area" class="label">Notes : </label>
+                        </td>
+                        <td>
+                            <textarea id="area" class="input" placeholder="Add your notes here..."></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" id="submit1" class="secbutton" value="SUBMIT DETAILS">
+                        </td>
+                        <td>
+                            <input type="reset" id="reset1" class="secbutton" value="RESET FORM">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </article>
+        <article id="form_2" hidden>
+            <form name="add_series_form" onsubmit="return validate(2)" autocomplete="off">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="seriesname" class="label">Series Name : </label>
+                        </td>
+                        <td>
+                            <input type="text" id="seriesname" class="input" placeholder="Enter the name of the series here" required/>
+                        </td>
+                        <td>
+                            <span class="formerror" id="serieserr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="numbooks" class="label">Number of Books : </label>
+                        </td>
+                        <td>
+                            <input type="number" id="numbooks" class="input" placeholder="Enter the number of books in the series" required/>
+                        </td>
+                        <td>
+                            <span class="formerror" id="numberr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="autrname" class="label">Author(s) : </label>
+                        </td>
+                        <td>
+                            <input type="text" id="autrname" class="input" placeholder="Enter the name of the author here"/>
+                        </td>
+                        <td>
+                            <span class="formerror" id="autrerr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pblrname" class="label">Publisher(s) : </label>
+                        </td>
+                        <td>
+                            <input type="text" id="pblrname" class="input" placeholder="Enter the name of publisher here"/>
+                        </td>
+                        <td>
+                            <span class="formerror" id="pblrerr"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="area" class="label">Notes : </label>
+                        </td>
+                        <td>
+                            <textarea id="area" class="input" placeholder="Add your notes here..."></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" id="submit1" class="secbutton" value="SUBMIT DETAILs">
+                        </td>
+                        <td>
+                            <input type="reset" id="reset1" class="secbutton" value="RESET FORM">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </article>
+    </main>
+    <script>
+        function set_book_form() {
+            if(document.getElementById('form_1').hidden)
+            {
+                document.getElementById('form_1').hidden=false;
+                document.getElementById('form_2').hidden=true;
+                document.getElementById('book_section').className="current";
+                document.getElementById('series_section').className="other";
+            }
+        }
+
+        function set_series_form() {
+            if(document.getElementById('form_2').hidden)
+            {
+                document.getElementById('form_2').hidden=false;
+                document.getElementById('form_1').hidden=true;
+                document.getElementById('book_section').className="other";
+                document.getElementById('series_section').className="current";
+            }
+        }
+
+        function series_func() {
+            if(document.getElementById('standalone').checked)
+            {
+                document.getElementById('sername').hidden=true;
+            }
+            else if(document.getElementById('series').checked)
+            {
+                document.getElementById('sername').hidden=false;
+            }
+        }
+
+        function genre_func() {
+            if(document.getElementById('fiction').checked)
+            {
+                document.getElementById('fictopt').hidden=false;
+                document.getElementById('nonfictopt').hidden=true;
+            }
+            else if(document.getElementById('nonfiction').checked)
+            {
+                document.getElementById('fictopt').hidden=true;
+                document.getElementById('nonfictopt').hidden=false;
+            }
+        }
+
+        function setError(id,error) {
+            document.getElementById(id).innerHTML=error;
+        }
+
+        function validate(num) {
+            if(num===1)
+            {
+                var returnval=true;
+
+                var name=document.getElementById('bkname').value;
+                var rgname=/[A-Z0-9-:.,]/ig;
+                if(!rgname.test(name))
+                {
+                    setError('nameerr','Book name can only contain alphabets, numbers and special characters -:.,');
+                    returnval=false;
+                }
+                else
+                {
+                    setError('nameerr','');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

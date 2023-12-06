@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deletion Page</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 1fr 1fr 90%;
+            margin: 0%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        header {
+            background-image: url(bookshelf-background-3.jpg);
+            background-position: center;
+            color: #27005D;
+
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        h1 {
+            margin-left: 1rem;
+            font-size: 3rem;
+        }
+
+        nav {
+            background-color: #9D76C1;
+            color: #27005D;
+
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0px;
+        }
+
+        nav ul li {
+            list-style-type: none;
+            margin-left: 3rem;
+            margin-right: 3rem;
+            font-size: 1.2rem;
+        }
+
+        nav ul li.heading {
+            flex-grow: 1;
+            margin-left: 1rem;
+        }
+
+        main {
+            background-image: linear-gradient(#FFFFFF);
+
+            grid-column: 1;
+            grid-row: 3;
+
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 1fr 1fr 90%;
+        }
+
+        article#p_menu {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #AED2FF;
+            font-size: 1.5rem;
+        }
+
+        article#s_menu {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #27005D;
+        }
+
+        #p_menu section {
+            margin: 2rem;
+        }
+
+        #s_menu section {
+            margin: 2rem;
+            color: #E4F1FF;
+        }
+
+        .current {
+            padding-bottom: 5px;
+            border-bottom: 5px solid #000000;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .query {
+            margin: 3rem 1rem;
+            padding: 0.5rem;
+        }
+
+        label {
+            font-size: 1.5rem;
+            margin: 1rem;
+            color: #E4F1FF;
+        }
+
+        article#input,
+        article#removal {
+            text-align: center;
+        }
+
+        table {
+            margin: 3rem auto;
+            width: 75%;
+            font-size: 1.5rem;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 2px solid #E4F1FF;
+            border-collapse: collapse;
+            padding: 0.5rem;
+            color: #E4F1FF;
+        }
+
+        input[type='text'] {
+            width: 30rem;
+            height: 3rem;
+            font-size: 1rem;
+            padding: 0.5rem;
+            border: 2px solid;
+            background-color: #27005D;
+            border-color: #E4F1FF;
+            color: #E4F1FF;
+        }
+
+        input[type='radio'] {
+            width: 3rem;
+            height: 1rem;
+            font-size: 1rem;
+            padding: 0.5rem;
+            text-align: left;
+            background-color: #27005D;
+            border-color: #E4F1FF;
+            color: #E4F1FF;
+        }
+
+        select {
+            width: 30rem;
+            height: 2.5rem;
+            margin: 0rem 0.5rem;
+            padding: 0.25rem;
+            font-size: 1.25rem;
+            border: 2px solid;
+            background-color: #27005D;
+            border-color: #E4F1FF;
+            color: #E4F1FF;
+        }
+
+        input[type='button'] {
+            border: 3px solid;
+            width: 10rem;
+            border-radius: 5px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #27005D;
+            border-color: #E4F1FF;
+            background-color: #AED2FF;
+        }
+
+        ::placeholder {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+            color: #AED2FF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Booklet.com</h1>    
+    </header>
+    <nav>
+        <ul>
+            <li class="heading"><h2>Your personal library management system</h2></li>
+            <li><a href="main_page.html">Home</a></li>
+            <li><a href="#">Recommendations</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+    <main id="main">
+        <article id="p_menu">
+            <a href="add_book.html">
+                <section>
+                    ADD BOOKS
+                </section>
+            </a>
+            <a href="#">
+                <section>
+                    SHOW RECORDS
+                </section>
+            </a>
+            <a href="#">
+                <section class="current">
+                    REMOVE BOOKS
+                </section>
+            </a>
+            <a href="#">
+                <section>
+                    EDIT PROMPTS
+                </section>
+            </a>  
+        </article>
+        <article id="s_menu">
+            <section>
+                <input type="radio" name="menu" id="radio1" class="menu" onclick="uncover(0)">BY SERIAL NUMBER
+            </section>
+            <section>
+                <input type="radio" name="menu" id="radio2" class="menu" onclick="uncover(1)">BY BOOK NAME
+            </section>
+            <section>
+                <input type="radio" name="menu" id="radio3" class="menu" onclick="uncover(2)">BY SERIES NAME
+            </section>
+            <section>
+                <input type="radio" name="menu" id="radio4" class="menu" onclick="uncover(3)">BY AUTHOR
+            </section>
+            <section>
+                <input type="radio" name="menu" id="radio5" class="menu" onclick="uncover(4)">BY GENRE
+            </section>
+        </article>
+        <article id="input">
+            <section id="sr_no" class="query" hidden>
+                <label for="number" class="label">Serial number of query : </label>
+                <input type="text" id="number" class="input" placeholder="Enter the serial number of the book or series here">
+            </section>
+            <section id="bk_nm" class="query" hidden>
+                <label for="book_name" class="label">Book Name : </label>
+                <input type="text" id="book_name" class="input" placeholder="Enter the name of the book here">
+            </section>
+            <section id="srs_nm" class="query" hidden>
+                <label for="series_name" class="label">Series Name : </label>
+                <input type="text" id="series_name" class="input" placeholder="Enter the name of the series here">
+            </section>
+            <section id="atr_nm" class="query" hidden>
+                <label for="author_name" class="label">Author : </label>
+                <input type="text" id="author_name" class="input" placeholder="Enter the name of the author here">
+            </section>
+            <section id="gen" class="query" hidden>
+                <label for="genre" class="label">Enter the genre of the series here : </label>
+                <select name="genre" id="genre" class="input">
+                    <option value="00">Fiction</option>
+                    <option value="01">Non-Fiction</option>
+                    <option value="02">Adventure</option>
+                    <option value="03">Biography, Autobiography and Memoir</option>
+                    <option value="04">Business and Economics</option>
+                    <option value="05">Children's Fiction</option>
+                    <option value="06">Crafts and Hobbies</option>
+                    <option value="07">Dystopian</option>
+                    <option value="08">Fantasy</option>
+                    <option value="09">Health and Fitness</option>
+                    <option value="10">Historical Fiction</option>
+                    <option value="11">History and Philosophy</option>
+                    <option value="12">Horror</option>
+                    <option value="13">Mystery</option>
+                    <option value="14">Politics and Social Sciences</option>
+                    <option value="15">Religion and Spirituality</option>
+                    <option value="16">Romance</option>
+                    <option value="17">Science Fiction</option>
+                    <option value="18">Science and Technology</option>
+                    <option value="19">Self-Help and Education</option>
+                    <option value="20">Travel and Journalism</option>
+                    <option value="21">Young Adult</option>   
+                </select>
+            </section>
+            <section>
+                <input type="button" id="find" class="button" value="Find Book(s)" onclick="validation()" hidden>
+            </section>
+        </article>
+        <article id="removal" hidden>
+            <section>
+                <table>
+                    <tr>
+                        <th colspan="6">Match(es) Found : </th>
+                    </tr>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Book</th>
+                        <th>Series</th>
+                        <th>Author(s)</th>
+                        <th>Genre</th>
+                        <th>To be removed</th>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <input type="button" id="delete" class="button" value="Delete Book(s)">
+            </section>
+        </article>
+    </main>
+    <script>
+        function uncover(par) {
+            document.getElementById('main').style.backgroundImage="linear-gradient(#27005D,#9400FF)";
+            const radio=document.getElementsByClassName('menu');
+            const sect=document.getElementsByClassName('query');
+            document.getElementById('input').hidden=false;
+            document.getElementById('find').hidden=false;
+            var i;
+
+            for(i=0;i<sect.length;i++)
+            {
+                if(i==par)
+                {
+                    sect[i].hidden=false;
+                }
+                else
+                {
+                    sect[i].hidden=true;
+                }
+            }
+        }
+
+        function setError(err) {
+            alert(err);
+        }
+
+        function validation() {
+            const sect=document.getElementsByClassName('query');
+            var i, main, check;
+            for(i=0;i<sect.length;i++)
+            {
+                if(sect[i].hidden==false)
+                    main=i;
+            }
+            
+            check=validate(main);
+            
+            if(check)
+            {
+                showTable();
+            }
+        }
+
+        function validate(n) {
+            var returnval=true;
+            return returnval;
+        }
+
+        function showTable() {
+            document.getElementById('input').hidden=true;
+            document.getElementById('removal').hidden=false;
+        }
+    </script>
+</body>
+</html>

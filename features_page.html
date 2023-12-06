@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 1fr 1fr 90%;
+            margin: 0%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        h1 {
+            margin-left: 1rem;
+            font-size: 3rem;
+        }
+
+        h3 {
+            font-size: 2.75rem;
+            margin: 0px;
+            margin-left: 1.5rem;
+            margin-bottom: 0px;
+        }
+
+        header {
+            background-image: url(bookshelf-background-3.jpg);
+            background-position: center;
+            color: #27005D;
+
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        nav {
+            background-color: #E4F1FF;
+            color: #27005D;
+
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0px;
+        }
+
+        nav ul li {
+            list-style-type: none;
+            margin-left: 3rem;
+            margin-right: 3rem;
+            font-size: 1.2rem;
+        }
+
+        nav ul li.heading {
+            flex-grow: 1;
+            margin-left: 1rem;
+        }
+
+        main {
+            grid-column: 1;
+            grid-row: 3;
+        }
+
+        a {
+            text-decoration: none;
+            color: #27005D;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        article {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(4,25%);
+            background-color: #9D76C1;
+            justify-content: start;
+            align-items: center;
+        }
+
+        section {
+            background-color: #AED2FF;
+            color: #000000;
+            width: calc(30vmax + 30rem);
+            height: calc(10vmax + 10rem);
+            font-size: 2rem;
+            margin: 2rem 10rem;
+            text-align: left;
+        }
+
+        section:hover {
+            width: calc(32.5vmax + 32.5rem);
+            height: calc(11.5vmax + 11.5rem);
+            font-size: 2.25rem;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+        }
+
+        td {
+            padding: 0px;
+        }
+
+        img {
+            width: 10vmax;
+            height: 10vmax;
+            vertical-align: bottom;
+            margin: 5rem 1rem 3rem 3rem;
+        }
+
+        #image1 {
+            margin: 5rem 0rem 3rem 3rem;
+        }
+
+        #image2 {
+            height: 8vmax;
+        }
+
+        #image3,
+        #image4 {
+            margin: 5rem 2rem 3rem 3rem
+        }
+
+        section ul {
+            margin: 1rem;
+            margin-top: 0px;
+        }
+
+        a.feature {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Booklet.com</h1>    
+    </header>
+    <nav>
+        <ul>
+            <li class="heading"><h2>Your personal library management system</h2></li>
+            <li><a href="login_page.html">Login</a></li>
+            <li><a href="main_page.html">Home</a></li>
+            <li><a href="#">Recommendations</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        <article>
+            <a href="add_book.html" class="feature">
+            <section id="num1">
+                <table class="display">
+                    <tr>
+                        <td>
+                            <h3>Add Books/Series</h3>
+                        </td>
+                        <td rowspan="2">
+                            <img src="book-plus.png" alt="book with plus" id="image1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Add a new book series to your records</li>
+                                <li>Add a new book to an existing book series</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>  
+            </section>
+            </a>
+            <a href="#" class="feature">
+            <section id="num2">
+                <table class="display">
+                    <tr>
+                        <td>
+                            <h3>Show Records</h3>
+                        </td>
+                        <td rowspan="2">
+                            <img src="book-with-glass.svg" alt="book with searching glass" id="image2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Display all the saved details about previous books</li>
+                                <li>Edit or remove the details about a book or series</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>  
+            </section>
+            </a>
+            <a href="remove_book.html" class="feature">
+            <section id="num3">
+                <table class="display">
+                    <tr>
+                        <td>
+                            <h3>Remove Books/Series</h3>
+                        </td>
+                        <td rowspan="2">
+                            <img src="book-minus-icon.png" alt="book with minus" id="image3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Remove a book or book series from your records</li>
+                                <li>Remove a prompt from the storage</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>  
+            </section>
+            </a>
+            <a href="#" class="feature">
+            <section id="num4">
+                <table class="display">
+                    <tr>
+                        <td>
+                            <h3>Edit Prompts</h3>
+                        </td>
+                        <td rowspan="2">
+                            <img src="bookmark-plus.png" alt="bookmark with plus" id="image4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Add your thoughts and notes related to your books</li>
+                                <li>Store images, links and ideas for further perusal</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>  
+            </section>
+            </a>
+        </article>
+    </main>
+</body>
+</html>

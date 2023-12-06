@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-image: url(login-bg.jpg);
+            background-size: cover;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        main {
+            width: 25rem;
+            height: 22.5rem;
+            margin: auto;
+            background-image: linear-gradient(#27005D,#5B0888);
+            text-align: center;
+            border-radius: 7px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #E4F1FF;
+            margin: 0px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #E4F1FF;
+            margin-top: 5px;
+        }
+
+        input {
+            border: 2px #E4F1FF solid;
+            background-color: #27005D;
+            margin: 0.5rem;
+            width: 15rem;
+            color: #E4F1FF;
+        }
+
+        section.lab {
+            text-align: left;
+            margin: 0.5rem;
+        }
+
+        label {
+            margin-left: 3.5rem;
+            color: #E4F1FF;
+        }
+
+        input[type='submit'] {
+            background-color: #AED2FF;
+            color: #27005D;
+            width: 9rem;
+            margin: 1rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        a {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #E4F1FF;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+        section.back {
+            text-align: right;
+        }
+
+        #back {
+            margin: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article>
+            <section class="back">
+                <a href="main_page.html" id="back">&#10006</a>
+            </section>
+            <section>
+                <h1>Booklet.com</h1>
+                <h2>Login Form</h2>
+            </section>
+            <section class="lab">
+                <label for="uname" class="label">Username</label>
+                <span id="unameerr" class="error"></span>
+            </section>
+            <section>
+                <input type="text" id="uname" class="input">
+            </section>
+            <section class="lab">
+                <label for="pwd" class="label">Password</label>
+                <span id="pwderr" class="error"></span>
+            </section>
+            <section>
+                <input type="password" id="pwd" class="input">
+            </section>
+            <section>
+                <input type="submit" id="submit" class="button" value="CREATE ACCOUNT" onclick="validate()">
+            </section>
+            <section>
+                <a href="registration_page.html" id="reg_page">Not registered yet? Do it here.</a>
+            </section>
+        </article>
+    </main>
+    <script>
+        function getInput(id) {
+            var m=document.getElementById(id).value;
+            return m;
+        }
+        function error(id,err) {
+            document.getElementById(id).innerHTML=err;
+        }
+        function validate() {
+            {
+                var uname=getInput('uname');
+                
+                if(uname='')
+                {
+                    error('unameerr','Username cannot be empty!');
+                }
+                else
+                {
+                    error('unameerr','');
+                }
+            }
+            {
+                var pass=getInput('pwd');
+                
+                if(pass='')
+                {
+                    error('pwderr','Password cannot be empty!');
+                }
+                else
+                {
+                    error('pwderr','');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

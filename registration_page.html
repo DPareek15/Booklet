@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            background-image: linear-gradient(to right,#9400FF,#AED2FF);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        main {
+            width: 24rem;
+            height: 37.5rem;
+            margin: auto;
+            background-image: linear-gradient(#27005D,#5B0888);
+            text-align: center;
+            border-radius: 7px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #E4F1FF;
+            margin: 0px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #E4F1FF;
+            margin-top: 5px;
+        }
+
+        input {
+            border: 2px #E4F1FF solid;
+            background-color: #27005D;
+            color: #E4F1FF;
+            margin-bottom: 0.5rem;
+            width: 15rem;
+            color: #E4F1FF;
+        }
+
+        input[type='checkbox'] {
+            margin: 0.5rem;
+            width: 1rem;
+        }
+
+        section {
+            margin: 0.5rem;
+            font-size: 1rem;
+        }
+
+        section.lab {
+            text-align: left;
+            margin: 0.5rem;
+        }
+
+        label {
+            margin-left: 3.5rem;
+            color: #E4F1FF;           
+        }
+
+        .check {
+            margin-left: 0rem;
+            color: #E4F1FF;
+        }
+
+        input[type='submit'] {
+            background-color: #AED2FF;
+            color: #27005D;
+            width: 9rem;
+            margin: 0.5rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        a {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #E4F1FF;
+            margin: 2rem;
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+        section.back {
+            text-align: right;
+        }
+
+        #back {
+            margin: 0.5rem;
+        }
+
+        .error {
+            color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article>
+            <section class="back">
+                <a href="main_page.html" id="back">&#10006</a>
+            </section>
+            <section>
+                <h1>Booklet.com</h1>
+                <h2>Registration Form</h2>
+            </section>
+            <form name="reg_form" onsubmit="return validate()" autocomplete="off">
+                <section class="lab">
+                    <label for="flname" class="label">Full Name</label>
+                    <span id="nameerr" class="error"></span>
+                </section>
+                <section>
+                    <input type="text" id="flname" class="input">
+                </section>
+                <section class="lab">
+                    <label for="uname" class="label">Username</label>
+                    <span id="unameerr" class="error"></span>
+                </section>
+                <section>
+                    <input type="text" id="uname" class="input">
+                </section>
+                <section class="lab">
+                    <label for="email" class="label">E-mail ID</label>
+                    <span id="mailerr" class="error"></span>
+                </section>
+                <section>
+                    <input type="email" id="email" class="input">
+                </section>
+                <section class="lab">
+                    <label for="pwd" class="label">Password</label>
+                    <span id="pwderr" class="error"></span>
+                </section>
+                <section>
+                    <input type="password" id="pwd" class="input">
+                </section>
+                <section class="lab">
+                    <label for="cfpwd" class="label">Confirm Password</label>
+                    <span id="cfpwderr" class="error"></span>
+                </section>
+                <section>
+                    <input type="password" id="cfpwd" class="input">
+                </section>
+                <section>
+                    <input type="checkbox" id="tnc"><label for="tnc" class="check"> I agree to the terms & conditions of use.</label>
+                </section>
+                <section>
+                    <input type="submit" id="submit" class="button" value="CREATE ACCOUNT" onclick="validate()">
+                </section>
+            </form>
+            <section>
+                <a href="login_page.html" id="login_page">Already registered? Login here</a>
+            </section>
+        </article>
+    </main>
+    <script>
+        function getInput(id) {
+            var m=document.getElementById(id).value;
+            return m;
+        }
+        function error(id,err) {
+            document.getElementById(id).innerHTML=err;
+        }
+        function validate() {
+
+                var returnval=true;
+            {
+                var name=getInput('flname');
+                var rename=/[A-Z]+[ ]+[A-Z]/ig;
+                var renum=/[0-9._%+-]/g;
+
+                if((!rename.test(name))||(renum.test(name)))
+                {
+                    error('nameerr','Full Name must consist of space-separated names and only alphabets!');
+                    returnval=false;
+                }
+                else if(name='')
+                {
+                    error('nameerr','Full Name cannot be empty!');
+                    returnval=false;
+                }
+                else
+                {
+                    error('nameerr','');
+                }
+            }
+            {
+                var uname=getInput('uname');
+                var reuname=/[A-Z0-9._]{8,15}/ig;
+
+                if(!reuname.test(uname))
+                {
+                    error('unameerr','The username must be 8 to 15 characters long!');
+                    returnval=false;
+                }
+                else if(uname='')
+                {
+                    error('unameerr','Username cannot be empty!');
+                    returnval=false;
+                }
+                else
+                {
+                    error('unameerr','');
+                }
+            }
+            {
+                var mail=getInput('email');
+                var reemail=/[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/ig;
+
+                if(!reemail.test(mail))
+                {
+                    error('mailerr','Invalid email id!');
+                    returnval=false;
+                }
+                else if(mail='')
+                {
+                    error('mailerr','E-mail ID cannot be empty!');
+                    returnval=false;
+                }
+                else
+                {
+                    error('mailerr','');
+                }
+            }
+            {
+                var pass=getInput('pwd');
+                var uname=getInput('uname');
+                var repass=/[A-Z0-9._%+-]{8,15}/ig;
+                var repass2=/[A-Z]/;
+                var repass3=/[a-z]/;
+                var repass4=/[0-9]/;
+                var repass5=/[._%+-]/;
+
+                if(!repass.test(pass)||!repass2.test(pass)||!repass3.test(pass)||!repass4.test(pass)||!repass5.test(pass))
+                {
+                    error('pwderr','The password must consist of uppercase, lowercase, numbers and special characters(._&+-)!');
+                    returnval=false;
+                }
+                else if(pass===uname)
+                {
+                    error('pwderr','Username and password cannot be same!');
+                    returnval=false;
+                }
+                else if(pass='')
+                {
+                    error('pwderr','Password cannot be empty!');
+                    returnval=false;
+                }
+                else
+                {
+                    error('pwderr','');
+                }
+
+                var cpass=getInput('cfpwd');
+
+                if(pass!==cpass)
+                {
+                    error('cfpwderr','Password and Confirm Password must be same!');
+                    returnval=false;
+                }
+                else
+                {
+                    error('cfpwderr','');
+                }
+            }
+            {
+                if(!document.getElementById('tnc').checked)
+                {
+                    alert("You must agree to the terms & conditions of use!");
+                }
+            }
+
+            return returnval;
+        }
+    </script>
+</body>
+</html>
